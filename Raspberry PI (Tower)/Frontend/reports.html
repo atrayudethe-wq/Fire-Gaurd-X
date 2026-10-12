@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Reports - FireGuardX</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar">
+    <div>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="reports.html">📑 Reports</a>
+      <a href="alerts.html">🚨 Alerts</a>
+      <a href="about.html">🧑‍🤝‍🧑 About</a>
+    </div>
+    <div style="display:flex; align-items:center; gap: 15px;">
+      <span id="system-clock" style="color: #ccc; font-size: 14px;"></span>
+      <button onclick="toggleTheme()" style="background:none; border:none; color:#ffc107; cursor:pointer; font-weight:bold; font-size: 16px;">🌙 Theme</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h2 style="margin: 0;">📑 Historical Data & Logs</h2>
+      <div>
+        <input type="text" id="searchInput" placeholder="Filter logs (e.g. STANDBY)" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; margin-right: 10px;" onkeyup="filterTable()">
+        <button onclick="downloadCSV()" style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">📥 Export CSV</button>
+      </div>
+    </div>
+
+    <div class="card" style="overflow-y: auto; max-height: 600px; margin-top: 20px;">
+      <table style="width: 100%; text-align: left; border-collapse: collapse;" id="reportsTable">
+        <thead style="position: sticky; top: 0; background: #343a40; color: white;">
+          <tr>
+            <th style="padding: 12px;">Timestamp</th>
+            <th style="padding: 12px;">Robot State</th>
+            <th style="padding: 12px;">Distance (cm)</th>
+            <th style="padding: 12px;">Flame Value</th>
+            <th style="padding: 12px;">Gas (MQ)</th>
+          </tr>
+        </thead>
+        <tbody id="reportsBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/reports.js"></script>
+</body>
+</html>

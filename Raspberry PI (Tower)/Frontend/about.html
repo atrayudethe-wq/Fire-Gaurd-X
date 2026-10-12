@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - FireGuardX</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar">
+    <div>
+      <a href="dashboard.html">&#128202; Dashboard</a>
+      <a href="reports.html">&#128209; Reports</a>
+      <a href="alerts.html">&#128680; Alerts</a>
+      <a href="about.html">&#128101; About</a>
+    </div>
+    <div style="display:flex; align-items:center; gap: 15px;">
+      <span id="system-clock" style="color: #ccc; font-size: 14px;"></span>
+      <button onclick="toggleTheme()" style="background:none; border:none; color:#ffc107; cursor:pointer; font-weight:bold; font-size: 16px;">&#127769; Theme</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card" style="text-align: center; padding: 50px 30px;">
+      <h1 style="color: var(--accent-color); font-size: 2.8em; margin-bottom: 10px;">FireGuardX</h1>
+      <h3 style="color: #64748b; margin-top: 0; font-weight: 500;">Autonomous Fire Detection & Extinguishing System</h3>
+      <p style="font-size: 18px; margin-top: 20px; font-weight: bold; color: var(--text-color);">
+        Created & Developed by: <br>
+        <span style="color: #007bff; font-size: 1.2em;">Ved Patil & Atrayu Dethe</span>
+      </p>
+      <hr style="border-top: 1px solid rgba(100, 116, 139, 0.2); margin: 40px 0;">
+      
+      <div style="text-align: left; max-width: 800px; margin: auto; line-height: 1.8;">
+        <h2 style="border-bottom: 3px solid #007bff; padding-bottom: 8px; display: inline-block;">Project Overview</h2>
+        <p style="font-size: 16px;">
+          FireGuardX is an advanced, autonomous IoT robotics platform designed to navigate hazardous environments, detect fire and smoke anomalies, and take immediate corrective action. Built for rapid emergency response, the system combines edge-AI computer vision with robust microcontroller networking.
+        </p>
+        <br>
+        <h2 style="border-bottom: 3px solid #28a745; padding-bottom: 8px; display: inline-block;">System Architecture</h2>
+        <ul style="font-size: 16px; padding-left: 20px;">
+          <li style="margin-bottom: 12px;"><b>The Vision Brain (Raspberry Pi):</b> Runs a Flask server and utilizes Ultralytics YOLOv8 for real-time, AI-driven optical detection of fires and smoke.</li>
+          <li style="margin-bottom: 12px;"><b>The Master Gateway (ESP32):</b> Acts as the central nervous system, handling local telemetry via an HMC5883L magnetometer, managing Wi-Fi connectivity to the Pi, and securely logging data offline using LittleFS.</li>
+          <li style="margin-bottom: 12px;"><b>The Slave Executor (ESP32):</b> Communicates with the Master via low-latency ESP-NOW protocol. It executes physical motor commands, sweeps a 270-degree servo, and continuously monitors analog environmental sensors (MQ Gas, IR Flame, Ultrasonic, and DHT11).</li>
+        </ul>
+        <br>
+        <h2 style="border-bottom: 3px solid #ffc107; padding-bottom: 8px; display: inline-block;">Core Features</h2>
+        <ul style="font-size: 16px; padding-left: 20px;">
+          <li style="margin-bottom: 8px;"><b>Real-Time Telemetry:</b> Live sensor data, compass headings, and AI video feeds pushed to a central web dashboard.</li>
+          <li style="margin-bottom: 8px;"><b>Autonomous & Manual Control:</b> Automated hazard suppression with failsafe protocols, alongside manual web-based overrides.</li>
+          <li style="margin-bottom: 8px;"><b>Resilient Communication:</b> Self-healing network loops with offline data caching and bulk-upload recovery.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+</body>
+</html>
